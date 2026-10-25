@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-task-tracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-task-tracker
+  template:
+    metadata:
+      labels:
+        app: student-task-tracker
+    spec:
+      containers:
+        - name: student-task-tracker
+          image: DOCKERHUB_USERNAME/student-task-tracker:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi

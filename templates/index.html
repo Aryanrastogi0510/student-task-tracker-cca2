@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Task Tracker</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f3f5f9;color:#202638;font:16px/1.5 Arial,sans-serif}
+main{max-width:760px;margin:48px auto;padding:0 18px}.panel{background:white;border-radius:16px;padding:28px;box-shadow:0 8px 30px #17255412}
+h1{margin:0 0 6px;font-size:30px}.muted{color:#687386;margin-top:0}.form{display:flex;gap:10px;margin:22px 0}
+input{flex:1;min-width:0;padding:12px;border:1px solid #cbd2df;border-radius:8px;font-size:16px}
+button{border:0;border-radius:8px;padding:12px 16px;background:#334fca;color:white;font-weight:bold;cursor:pointer}
+ul{list-style:none;padding:0;margin:0}.task{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid #e8ebf1}
+.done{text-decoration:line-through;color:#8790a0}footer{margin-top:20px;font-size:13px;color:#687386}
+</style></head><body><main><section class="panel"><h1>Student Task Tracker</h1>
+<p class="muted">A simple place to organise your study tasks.</p>
+<form class="form" method="post" action="/tasks"><input name="title" maxlength="120" placeholder="e.g. Prepare DevOps viva" required><button type="submit">Add task</button></form>
+<ul>{% for task in tasks %}<li class="task"><span class="{{ 'done' if task.done else '' }}">{{ task.title }}</span>
+<form method="post" action="/tasks/{{ task.id }}/toggle"><button type="submit">{{ 'Undo' if task.done else 'Complete' }}</button></form></li>
+{% else %}<li>No tasks yet. Add your first task above.</li>{% endfor %}</ul>
+<footer>Health endpoint: <a href="/health">/health</a> · Version 1</footer></section></main></body></html>
