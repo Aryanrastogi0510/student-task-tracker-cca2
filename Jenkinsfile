@@ -2,7 +2,7 @@ pipeline {
     agent any
     options { timestamps(); disableConcurrentBuilds() }
     environment {
-        IMAGE_NAME = 'DOCKERHUB_USERNAME/student-task-tracker'
+        IMAGE_NAME = 'aryan05102005/student-task-tracker'
         REGISTRY_CREDENTIALS = 'dockerhub-credentials'
     }
     stages {

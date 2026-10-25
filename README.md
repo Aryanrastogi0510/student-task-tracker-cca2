@@ -6,7 +6,7 @@ A small Flask web app for adding study tasks and marking them complete. The main
 GitHub → Jenkins checkout → Python syntax check + pytest → Docker build → Docker Hub push → Minikube/Kubernetes deployment → rollout verification.
 
 ## Before running the pipeline
-This starter repository is a template. Replace every `DOCKERHUB_USERNAME` placeholder with your Docker Hub username, including in `Jenkinsfile` and `k8s/deployment.yaml`. Commit and push that change.
+This starter repository is a template. Replace every `aryan05102005` placeholder with your Docker Hub username, including in `Jenkinsfile` and `k8s/deployment.yaml`. Commit and push that change.
 
 ### Jenkins prerequisites
 On the Jenkins agent running the job, install/configure Python 3, Docker CLI/daemon, `kubectl`, and Minikube. Ensure the Jenkins user can run Docker and has a working kubeconfig/context for Minikube. Jenkins must be able to reach the Docker daemon and cluster.

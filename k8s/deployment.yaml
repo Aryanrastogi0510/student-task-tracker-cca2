@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: student-task-tracker
-          image: DOCKERHUB_USERNAME/student-task-tracker:latest
+          image: aryan05102005/student-task-tracker:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
